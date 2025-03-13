@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wedding/source/components/banner.dart';
+import 'package:wedding/source/components/calendar.dart';
+import 'package:wedding/source/components/info.dart';
 import 'package:wedding/source/widgets/text_animated.dart';
 
 void main() {
@@ -16,7 +18,9 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: const Text("Animated Text Example")),
         body:  ListView(children: [
-          BannerView()
+          BannerView(),
+          Info(),
+          Calendar()
         ],)
       ),
     );

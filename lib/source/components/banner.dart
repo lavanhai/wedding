@@ -13,13 +13,14 @@ class BannerViewState extends State<BannerView> {
   @override
   Widget build(BuildContext context) {
     return  SizedBox(
-      height: 400,
+      height: 600,
       width: double.infinity,
       child: DecoratedBox(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(
-              'https://cdn.pixabay.com/photo/2017/10/30/12/19/sunset-2902357_640.jpg',
+            opacity: 0.6,
+            image: AssetImage(
+              'assets/background.jpg',
             ),
             fit: BoxFit.fill,
           ),
@@ -28,49 +29,66 @@ class BannerViewState extends State<BannerView> {
           padding: EdgeInsets.all(16),
           child: Column(
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  AnimatedTextWidget(
-                    text: 'Move Right',
-                    moveDirection: MoveDirection.right,
-                    enableScaling: false,
-                  ),
-                  AnimatedTextWidget(
-                    text: 'Move Left',
-                    moveDirection: MoveDirection.left,
-                    enableScaling: false,
-                  ),
-                ],
-              ),
               Spacer(),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Column(
+              AnimatedTextWidget(
+                text: 'Move Right',
+                moveDirection: MoveDirection.right,
+                enableScaling: false,
+              ),
+              AnimatedTextWidget(
+                text: 'Move Right',
+                moveDirection: MoveDirection.right,
+                enableScaling: false,
+              ),
+              Image.asset('assets/background.jpg', height: 350, width: 300),
+              IntrinsicHeight(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border(bottom: BorderSide())
-                      ),
-                      child: AnimatedTextWidget(
-                        initialSize: 10,
-                        finalSize: 24,
-                        text: 'Move Up',
-                        enableScaling: true,
-                      ),
-                    ),
                     AnimatedTextWidget(
                       initialSize: 10,
                       finalSize: 24,
                       text: 'Move Up',
                       enableScaling: true,
                     ),
-                    Divider(thickness: 1),
+                    VerticalDivider(
+                      color: Colors.black,
+                      thickness: 1,
+                      indent: 20,
+                      endIndent: 20,
+                      width: 20,
+                    ),
+                    AnimatedTextWidget(
+                      initialSize: 10,
+                      finalSize: 24,
+                      text: '23.11',
+                      enableScaling: true,
+                    ),
+                    const SizedBox(width: 10,),
+                    Column(children: [
+                      AnimatedTextWidget(
+                        initialSize: 10,
+                        finalSize: 24,
+                        text: '24',
+                        enableScaling: true,
+                      ),
+                      AnimatedTextWidget(
+                        initialSize: 10,
+                        finalSize: 24,
+                        text: '12',
+                        enableScaling: true,
+                      ),
+                    ],)
                   ],
                 ),
               ),
+              AnimatedTextWidget(
+                initialSize: 10,
+                finalSize: 24,
+                text: '( Aasd asd asdas das das das dasd)',
+                enableScaling: true,
+              ),
+              Spacer()
             ],
           ),
         ),
