@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:wedding/source/components/album.dart';
 import 'package:wedding/source/components/banner.dart';
 import 'package:wedding/source/components/calendar.dart';
+import 'package:wedding/source/components/footer.dart';
 import 'package:wedding/source/components/info.dart';
+import 'package:wedding/source/components/map_view.dart';
 import 'package:wedding/source/widgets/text_animated.dart';
 
 void main() {
@@ -20,7 +23,10 @@ class MyApp extends StatelessWidget {
         body:  ListView(children: [
           BannerView(),
           Info(),
-          Calendar()
+          Calendar(),
+          MapView(),
+          Album(),
+          Footer()
         ],)
       ),
     );

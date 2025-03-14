@@ -15,28 +15,38 @@ class CalendarState extends State<Calendar> {
       margin: EdgeInsets.all(16),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [Text('3'), const SizedBox(width: 10), Text('March')],
-              ),
-              Text('2024'),
-            ],
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      '3',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      'April',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  '2025',
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ),
-          CalendarView()
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //   children: [
-          //     Column(children: [Text('Mon')]),
-          //     Column(children: [Text('Tue')]),
-          //     Column(children: [Text('Wed')]),
-          //     Column(children: [Text('Thu')]),
-          //     Column(children: [Text('Fri')]),
-          //     Column(children: [Text('Sat')]),
-          //     Column(children: [Text('Sun')]),
-          //   ],
-          // ),
+          CalendarView(),
         ],
       ),
     );
@@ -54,7 +64,8 @@ class CalendarView extends StatelessWidget {
     DateTime firstDay = DateTime(year, month, 1);
     DateTime lastDay = DateTime(year, month + 1, 0);
 
-    int prevMonthDays = firstDay.weekday % 7;
+    int prevMonthDays = firstDay.weekday - 1;
+
     for (int i = prevMonthDays; i > 0; i--) {
       days.add(firstDay.subtract(Duration(days: i)));
     }
@@ -63,11 +74,9 @@ class CalendarView extends StatelessWidget {
       days.add(DateTime(year, month, i + 1));
     }
 
-    int nextMonthDays = 7 - (days.length % 7);
-    if (nextMonthDays < 7) {
-      for (int i = 1; i <= nextMonthDays; i++) {
-        days.add(lastDay.add(Duration(days: i)));
-      }
+    int nextMonthDays = (7 - (days.length % 7)) % 7;
+    for (int i = 1; i <= nextMonthDays; i++) {
+      days.add(lastDay.add(Duration(days: i)));
     }
 
     return days;
@@ -77,40 +86,76 @@ class CalendarView extends StatelessWidget {
   Widget build(BuildContext context) {
     List<DateTime> days = getMonthDays(year, month);
 
-    return Scaffold(
-      appBar: AppBar(title: Text("April 2025")),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => Text(day, style: TextStyle(fontWeight: FontWeight.bold))).toList(),
-          ),
-          Expanded(
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 7),
-              itemCount: days.length,
-              itemBuilder: (context, index) {
-                bool isCurrentMonth = days[index].month == month;
-                return Container(
-                  margin: EdgeInsets.all(4),
-                  decoration: BoxDecoration(
-                    color: isCurrentMonth ? Colors.blue[100] : Colors.grey[300],
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text(
-                    DateFormat('d').format(days[index]),
-                    style: TextStyle(
-                      color: isCurrentMonth ? Colors.black : Colors.grey,
-                      fontWeight: isCurrentMonth ? FontWeight.bold : FontWeight.normal,
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children:
+              ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+                  .map(
+                    (day) => Text(
+                      day,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
-                  ),
-                );
-              },
+                  )
+                  .toList(),
+        ),
+        const Divider(thickness: 1),
+        const SizedBox(height: 10),
+        SizedBox(
+          height: 300,
+          width: double.infinity,
+          child: GridView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 7,
             ),
+            itemCount: days.length,
+            itemBuilder: (context, index) {
+              bool isCurrentMonth = days[index].month == month;
+              bool isSpecialDay =
+                  isCurrentMonth &&
+                  (days[index].day == 5 || days[index].day == 6);
+
+              return Container(
+                margin: const EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  color: isCurrentMonth ? Colors.blue[100] : Colors.grey[300],
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                alignment: Alignment.center,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Text(
+                      DateFormat('d').format(days[index]),
+                      style: TextStyle(
+                        color: isCurrentMonth ? Colors.black : Colors.grey,
+                        fontWeight:
+                            isCurrentMonth
+                                ? FontWeight.bold
+                                : FontWeight.normal,
+                      ),
+                    ),
+                    if (isSpecialDay)
+                      Positioned(
+                        child: Padding(
+                          padding: const EdgeInsets.all(4),
+                          child: SizedBox(
+                            child: Image.asset(
+                              "assets/heart.png",
+                              color: Colors.redAccent,
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              );
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
