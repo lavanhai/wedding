@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/text_animated.dart';
 
@@ -28,13 +29,79 @@ class InfoState extends State<Info> {
           children: [
             // Expanded(child:  Image.asset('assets/background.jpg', height: 200),),
             Expanded(child: Container(color: Colors.blue, height: 300)),
-            Expanded(child: Container(color: Colors.amber, height: 300)),
+            Expanded(
+              child: Container(
+                color: Colors.amber,
+                height: 300,
+                child: Column(
+                  children: [
+                    const Spacer(),
+                    AnimatedTextWidget(
+                      initialSize: 20,
+                      text: 'Nhà trai\nÔng: La Văn Hà \nBà: Lê Thị Thành',
+                      enableScaling: false,
+                      textAlign: TextAlign.center,
+                      textStyleDefault: GoogleFonts.yrsa(),
+                    ),
+                    const Spacer(),
+                    AnimatedTextWidget(
+                      initialSize: 20,
+                      text: 'Chú rể',
+                      enableScaling: false,
+                      textAlign: TextAlign.center,
+                      textStyleDefault: GoogleFonts.yrsa(),
+                    ),
+                    AnimatedTextWidget(
+                      initialSize: 20,
+                      text: 'La Hải',
+                      enableScaling: false,
+                      textAlign: TextAlign.center,
+                      textStyleDefault: GoogleFonts.yrsa(),
+                    ),
+                    const Spacer(),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
         Row(
           children: [
             // Expanded(child:  Image.asset('assets/background.jpg', height: 200),),
-            Expanded(child: Container(color: Colors.amber, height: 300)),
+            Expanded(
+              child: Container(
+                color: Colors.amber,
+                height: 300,
+                child: Column(
+                  children: [
+                    const Spacer(),
+                    AnimatedTextWidget(
+                      initialSize: 20,
+                      text: 'Nhà trai\nÔng: La Văn Hà \nBà: Lê Thị Thành',
+                      enableScaling: false,
+                      textAlign: TextAlign.center,
+                      textStyleDefault: GoogleFonts.yrsa(),
+                    ),
+                    const Spacer(),
+                    AnimatedTextWidget(
+                      initialSize: 20,
+                      text: 'Chú rể',
+                      enableScaling: false,
+                      textAlign: TextAlign.center,
+                      textStyleDefault: GoogleFonts.yrsa(),
+                    ),
+                    AnimatedTextWidget(
+                      initialSize: 20,
+                      text: 'La Hải',
+                      enableScaling: false,
+                      textAlign: TextAlign.center,
+                      textStyleDefault: GoogleFonts.yrsa(),
+                    ),
+                    const Spacer(),
+                  ],
+                ),
+              ),
+            ),
             Expanded(child: Container(color: Colors.blue, height: 300)),
           ],
         ),
@@ -53,12 +120,34 @@ class InfoState extends State<Info> {
         ),
         Row(
           children: [
-            // Expanded(child:  Image.asset('assets/background.jpg', height: 200),),
-            Expanded(child: Container(color: Colors.amber, height: 200)),
+            // Thay thế Container bằng ảnh bên trái
+            Flexible(
+              flex: 3,  // flex=2 giúp ảnh giữa chiếm không gian gấp đôi so với ảnh bên cạnh
+              child: Image.asset(
+                'assets/HUY_3295.jpg', // Đường dẫn ảnh của bạn
+                fit: BoxFit.cover,     // Đảm bảo ảnh vừa với không gian
+              ),
+            ),
             const SizedBox(width: 10),
-            Expanded(child: Container(color: Colors.blue, height: 300)),
+
+            // Ảnh ở giữa, sẽ chiếm không gian nhiều hơn
+            Flexible(
+              flex: 4,  // flex=2 giúp ảnh giữa chiếm không gian gấp đôi so với ảnh bên cạnh
+              child: Image.asset(
+                'assets/HUY_3295.jpg', // Đường dẫn ảnh của bạn
+                fit: BoxFit.cover,     // Đảm bảo ảnh vừa với không gian
+              ),
+            ),
             const SizedBox(width: 10),
-            Expanded(child: Container(color: Colors.amber, height: 200)),
+
+            // Thay thế Container bằng ảnh bên phải
+            Flexible(
+              flex: 3,  // flex=2 giúp ảnh giữa chiếm không gian gấp đôi so với ảnh bên cạnh
+              child: Image.asset(
+                'assets/HUY_3295.jpg', // Đường dẫn ảnh của bạn
+                fit: BoxFit.cover,     // Đảm bảo ảnh vừa với không gian
+              ),
+            ),
           ],
         ),
         Container(

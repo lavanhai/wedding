@@ -9,7 +9,9 @@ class AnimatedTextWidget extends StatefulWidget {
   final double finalSize;
   final Duration duration;
   final TextStyle textStyle;
+  final TextStyle? textStyleDefault;
   final MoveDirection? moveDirection;
+  final TextAlign? textAlign;
   final bool enableScaling; // Cho phép phóng to chữ hay không
 
   const AnimatedTextWidget({
@@ -19,6 +21,8 @@ class AnimatedTextWidget extends StatefulWidget {
     this.finalSize = 40,
     this.duration = const Duration(seconds: 2),
     this.textStyle = const TextStyle(color: Colors.black),
+    this.textStyleDefault,
+    this.textAlign,
     this.moveDirection, // Mặc định chạy sang trái
     this.enableScaling = true, // Mặc định có phóng to
   });
@@ -93,7 +97,8 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget>
         ),
         child: Text(
           widget.text,
-          style: GoogleFonts.parisienne(), // Có thể thay đổi font
+          textAlign: widget.textAlign,
+          style: widget.textStyleDefault ?? GoogleFonts.parisienne(), // Có thể thay đổi font
         ),
       ),
     );

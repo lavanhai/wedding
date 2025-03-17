@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/text_animated.dart';
 
@@ -12,87 +13,120 @@ class BannerView extends StatefulWidget {
 class BannerViewState extends State<BannerView> {
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
-      height: 600,
-      width: double.infinity,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            opacity: 0.6,
-            image: AssetImage(
-              'assets/background.jpg',
+    return (Column(
+      children: [
+        DecoratedBox(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              opacity: 0.3,
+              scale: 1.3,
+              image: AssetImage('assets/background.jpg'),
+              fit: BoxFit.cover,
             ),
-            fit: BoxFit.fill,
           ),
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(16),
           child: Column(
             children: [
-              Spacer(),
+              const SizedBox(height: 50,),
               AnimatedTextWidget(
-                text: 'Move Right',
-                moveDirection: MoveDirection.right,
+                initialSize: 30,
+                finalSize: 80,
+                text: 'SAVE THE DATE',
+                duration: Duration(seconds: 3),
+                moveDirection: MoveDirection.down,
                 enableScaling: false,
+                textStyleDefault: GoogleFonts.literata(),
               ),
+              const SizedBox(height: 20),
               AnimatedTextWidget(
-                text: 'Move Right',
-                moveDirection: MoveDirection.right,
+                text: 'La Hải & Vân Vân',
+                duration: Duration(seconds: 3),
+                initialSize: 30,
+                finalSize: 50,
+                moveDirection: MoveDirection.down,
                 enableScaling: false,
+                textStyleDefault: GoogleFonts.greatVibes(),
               ),
-              Image.asset('assets/background.jpg', height: 350, width: 300),
-              IntrinsicHeight(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    AnimatedTextWidget(
-                      initialSize: 10,
-                      finalSize: 24,
-                      text: 'Move Up',
-                      enableScaling: true,
+              Padding(
+                padding: const EdgeInsets.all(24),
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.orangeAccent.shade100,
+                      width: 2,
                     ),
-                    VerticalDivider(
-                      color: Colors.black,
-                      thickness: 1,
-                      indent: 20,
-                      endIndent: 20,
-                      width: 20,
-                    ),
-                    AnimatedTextWidget(
-                      initialSize: 10,
-                      finalSize: 24,
-                      text: '23.11',
-                      enableScaling: true,
-                    ),
-                    const SizedBox(width: 10,),
-                    Column(children: [
-                      AnimatedTextWidget(
-                        initialSize: 10,
-                        finalSize: 24,
-                        text: '24',
-                        enableScaling: true,
-                      ),
-                      AnimatedTextWidget(
-                        initialSize: 10,
-                        finalSize: 24,
-                        text: '12',
-                        enableScaling: true,
-                      ),
-                    ],)
-                  ],
+                  ),
+                  child: Image.asset(
+                    'assets/HUY_3410.jpg',
+                    width: double.infinity, // Chiều rộng bằng màn hình
+                    fit: BoxFit.contain, // Đảm bảo ảnh không bị biến dạng
+                  ),
                 ),
               ),
-              AnimatedTextWidget(
-                initialSize: 10,
-                finalSize: 24,
-                text: '( Aasd asd asdas das das das dasd)',
-                enableScaling: true,
+              IntrinsicHeight(
+                child: Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          AnimatedTextWidget(
+                            initialSize: 30,
+                            text: '11:00',
+                            enableScaling: false,
+                            textStyleDefault: GoogleFonts.alata(),
+                          ),
+                          AnimatedTextWidget(
+                            initialSize: 30,
+                            text: 'Chủ nhật',
+                            enableScaling: false,
+                            textStyleDefault: GoogleFonts.alexBrush(),
+                          ),
+                        ],
+                      ),
+                      VerticalDivider(
+                        color: Colors.black,
+                        thickness: 1,
+                        width: 20,
+                      ),
+                      AnimatedTextWidget(
+                        initialSize: 30,
+                        text: '06:04',
+                        enableScaling: false,
+                        textStyleDefault: GoogleFonts.yrsa(),
+                      ),
+                      const SizedBox(width: 10),
+                      Column(
+                        children: [
+                          AnimatedTextWidget(
+                            initialSize: 30,
+                            text: '20',
+                            enableScaling: false,
+                            textStyleDefault: GoogleFonts.tiltPrism(),
+                          ),
+                          AnimatedTextWidget(
+                            initialSize: 30,
+                            text: '25',
+                            enableScaling: false,
+                            textStyleDefault: GoogleFonts.tiltPrism(),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              Spacer()
+              const SizedBox(height: 20),
+              AnimatedTextWidget(
+                initialSize: 16,
+                text: '( Ngày mùng 9 tháng 3 năm Ất Tỵ )',
+                enableScaling: false,
+                textStyleDefault: GoogleFonts.playfair(),
+                textAlign: TextAlign.center,
+              ),
             ],
           ),
         ),
-      ),
-    );
+      ],
+    ));
   }
 }
