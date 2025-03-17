@@ -31,7 +31,7 @@ class FooterState extends State<Footer> {
             children: [
               Spacer(),
               AnimatedTextWidget(
-                text: 'Thank you',
+                text: 'Thank you1',
                 moveDirection: MoveDirection.right,
                 enableScaling: false,
               ),
