@@ -10,6 +10,10 @@ class Footer extends StatefulWidget {
 }
 
 class FooterState extends State<Footer> {
+  void _handleOpenQR  (){
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -19,9 +23,7 @@ class FooterState extends State<Footer> {
         decoration: BoxDecoration(
           image: DecorationImage(
             opacity: 0.3,
-            image: AssetImage(
-              'assets/background.jpg',
-            ),
+            image: AssetImage('assets/background.jpg'),
             fit: BoxFit.fill,
           ),
         ),
@@ -31,11 +33,14 @@ class FooterState extends State<Footer> {
             children: [
               Spacer(),
               AnimatedTextWidget(
-                text: 'Thank you1',
-                moveDirection: MoveDirection.right,
+                text: 'Hân hạnh được đón tiếp',
                 enableScaling: false,
               ),
-              Spacer()
+              ElevatedButton(
+                onPressed: _handleOpenQR,
+                child: Text('Mừng cưới'),
+              ),
+              Spacer(),
             ],
           ),
         ),

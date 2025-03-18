@@ -24,7 +24,7 @@ class AnimatedTextWidget extends StatefulWidget {
     this.textStyleDefault,
     this.textAlign,
     this.moveDirection, // Mặc định chạy sang trái
-    this.enableScaling = true, // Mặc định có phóng to
+    this.enableScaling = false, // Mặc định ko phóng to
   });
 
   @override
@@ -98,7 +98,7 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget>
         child: Text(
           widget.text,
           textAlign: widget.textAlign,
-          style: widget.textStyleDefault ?? GoogleFonts.parisienne(), // Có thể thay đổi font
+          style: widget.textStyleDefault ?? GoogleFonts.carattere(), // Có thể thay đổi font
         ),
       ),
     );

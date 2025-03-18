@@ -5,7 +5,6 @@ import 'package:wedding/source/components/calendar.dart';
 import 'package:wedding/source/components/footer.dart';
 import 'package:wedding/source/components/info.dart';
 import 'package:wedding/source/components/map_view.dart';
-import 'package:wedding/source/widgets/text_animated.dart';
 
 void main() {
   runApp(const MyApp());

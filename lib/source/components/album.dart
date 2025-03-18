@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/image_animated.dart';
 import '../widgets/text_animated.dart';
 
 class Album extends StatefulWidget {
@@ -20,7 +21,7 @@ class AlbumState extends State<Album> {
             children: [
               Expanded(
                 child: Text(
-                  'Album hdng cnhd',
+                  'Album hình cưới',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -30,16 +31,18 @@ class AlbumState extends State<Album> {
           Row(children: [
             Expanded(
               child: Column(children: [
-                Container(
-                  color: Colors.blue,
-                  height: 200,
-                  width: 200,
+                AnimatedImageWidget(
+                  imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                  moveDirection: MoveDirection.right, // Di chuyển từ phải sang trái
+                  duration: const Duration(seconds: 2),
+                  enableScaling: false, // Cho phép phóng to hình ảnh
                 ),
                 const SizedBox(height: 10),
-                Container(
-                  color: Colors.amber,
-                  height: 200,
-                  width: 200,
+                AnimatedImageWidget(
+                  imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                  moveDirection: MoveDirection.right, // Di chuyển từ phải sang trái
+                  duration: const Duration(seconds: 3),
+                  enableScaling: false, // Cho phép phóng to hình ảnh
                 ),
               ],),
             ),
@@ -47,16 +50,18 @@ class AlbumState extends State<Album> {
             Expanded(child: Container(
               margin: EdgeInsets.only(top: 50),
               child: Column(children: [
-                Container(
-                  color: Colors.amber,
-                  height: 200,
-                  width: 200,
+                AnimatedImageWidget(
+                  imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                  moveDirection: MoveDirection.left, // Di chuyển từ phải sang trái
+                  duration: const Duration(seconds: 2),
+                  enableScaling: false, // Cho phép phóng to hình ảnh
                 ),
                 const SizedBox(height: 10),
-                Container(
-                  color: Colors.blue,
-                  height: 200,
-                  width: 200,
+                AnimatedImageWidget(
+                  imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                  moveDirection: MoveDirection.left, // Di chuyển từ phải sang trái
+                  duration: const Duration(seconds: 3),
+                  enableScaling: false, // Cho phép phóng to hình ảnh
                 ),
               ],),
             )),

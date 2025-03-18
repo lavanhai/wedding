@@ -56,7 +56,7 @@ class BannerViewState extends State<BannerView> {
                     ),
                   ),
                   child: Image.asset(
-                    'assets/HUY_3410.jpg',
+                    'assets/background.jpg',
                     width: double.infinity, // Chiều rộng bằng màn hình
                     fit: BoxFit.contain, // Đảm bảo ảnh không bị biến dạng
                   ),

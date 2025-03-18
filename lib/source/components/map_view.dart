@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MapView extends StatefulWidget {
@@ -33,23 +34,23 @@ class MapViewState extends State<MapView> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+        padding: EdgeInsets.symmetric(vertical: 60, horizontal: 20),
         child: Column(
           children: [
-            const Text(
-              'Map View',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+             Text(
+              'Địa điểm tổ chức',
+              style:  GoogleFonts.alexBrush( textStyle: TextStyle(fontSize: 24)),
             ),
-            _buildLocationRow(true),
+            _buildLocationRow(isMale: true, title: "Nhà trai", address: "Bắc Phú - Sóc Sơn - Hà Nội"),
             const SizedBox(height: 16),
-            _buildLocationRow(false),
+            _buildLocationRow(isMale: true, title: "Nhà gái", address: "Văn Hội - Ninh Giang - Hải Dương"),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildLocationRow(bool isMale) {
+  Widget _buildLocationRow({required bool isMale, required String title, required String address}) {
     return Row(
       children: [
         Image.asset('assets/location.png', height: 40, width: 40),
@@ -62,26 +63,23 @@ class MapViewState extends State<MapView> {
                 children: [
                   Expanded(
                     child: Text(
-                      'Location',
-                      style: const TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      title,
+                      style:  GoogleFonts.alexBrush( textStyle: TextStyle(fontSize: 30)),
                     ),
                   ),
                   SizedBox(
                     height: 30,
                     child: ElevatedButton(
                       onPressed: () => _handleOpenMap(isMale),
-                      child: const Text("Map"),
+                      child: const Text("Chỉ đường"),
                     ),
                   ),
                 ],
               ),
-              const Text(
-                '1234, 5th Avenue, New York',
-                style: TextStyle(fontSize: 14),
-              ),
+              Text(
+                address,
+                style:  GoogleFonts.alexBrush( textStyle: TextStyle(fontSize: 18)),
+              )
             ],
           ),
         ),

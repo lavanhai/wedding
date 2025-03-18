@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../widgets/image_animated.dart';
 import '../widgets/text_animated.dart';
 
 class Info extends StatefulWidget {
@@ -109,33 +110,37 @@ class InfoState extends State<Info> {
         AnimatedTextWidget(
           initialSize: 10,
           finalSize: 24,
-          text: 'Aasd asd',
+          text: 'Thư mời',
           enableScaling: true,
         ),
         AnimatedTextWidget(
           initialSize: 10,
           finalSize: 24,
-          text: 'Aasd asd asdas das das das dasd',
+          text: 'Tham dự lễ cưới của Ad Gad & Ad Ndf',
           enableScaling: true,
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Thay thế Container bằng ảnh bên trái
             Flexible(
               flex: 3,  // flex=2 giúp ảnh giữa chiếm không gian gấp đôi so với ảnh bên cạnh
-              child: Image.asset(
-                'assets/HUY_3295.jpg', // Đường dẫn ảnh của bạn
-                fit: BoxFit.cover,     // Đảm bảo ảnh vừa với không gian
-              ),
+              child: AnimatedImageWidget(
+                imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                moveDirection: MoveDirection.right, // Di chuyển từ phải sang trái
+                duration: const Duration(seconds: 3),
+                enableScaling: false, // Cho phép phóng to hình ảnh
+              )
             ),
             const SizedBox(width: 10),
 
             // Ảnh ở giữa, sẽ chiếm không gian nhiều hơn
             Flexible(
               flex: 4,  // flex=2 giúp ảnh giữa chiếm không gian gấp đôi so với ảnh bên cạnh
-              child: Image.asset(
-                'assets/HUY_3295.jpg', // Đường dẫn ảnh của bạn
-                fit: BoxFit.cover,     // Đảm bảo ảnh vừa với không gian
+              child: AnimatedImageWidget(
+                imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                duration: const Duration(seconds: 3),
+                enableScaling: false, // Cho phép phóng to hình ảnh
               ),
             ),
             const SizedBox(width: 10),
@@ -143,10 +148,12 @@ class InfoState extends State<Info> {
             // Thay thế Container bằng ảnh bên phải
             Flexible(
               flex: 3,  // flex=2 giúp ảnh giữa chiếm không gian gấp đôi so với ảnh bên cạnh
-              child: Image.asset(
-                'assets/HUY_3295.jpg', // Đường dẫn ảnh của bạn
-                fit: BoxFit.cover,     // Đảm bảo ảnh vừa với không gian
-              ),
+              child: AnimatedImageWidget(
+                imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                moveDirection: MoveDirection.left, // Di chuyển từ phải sang trái
+                duration: const Duration(seconds: 3),
+                enableScaling: false, // Cho phép phóng to hình ảnh
+              )
             ),
           ],
         ),
@@ -157,43 +164,66 @@ class InfoState extends State<Info> {
           decoration: BoxDecoration(
             border: Border.all(color: Colors.black),
             borderRadius: BorderRadius.only(
-              topRight: Radius.circular(100),
-              bottomRight: Radius.circular(100),
+              topRight: Radius.circular(150),
+              bottomRight: Radius.circular(150),
             ),
           ),
           child: Column(
             children: [
               AnimatedTextWidget(
-                initialSize: 10,
+                initialSize: 30,
                 finalSize: 18,
-                text: 'Aasd asd asdas ',
+                text: 'Tiệc cưới nhà trai',
                 enableScaling: true,
               ),
+              const SizedBox(height: 10,),
+              IntrinsicHeight(
+                child: Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      AnimatedTextWidget(
+                        initialSize: 30,
+                        text: 'Thứ 7',
+                        enableScaling: false,
+                      ),
+                      VerticalDivider(
+                        color: Colors.black,
+                        thickness: 1,
+                        width: 20,
+                      ),
+                      AnimatedTextWidget(
+                        initialSize: 30,
+                        text: '16:30',
+                        enableScaling: false
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10,),
               AnimatedTextWidget(
                 initialSize: 10,
                 finalSize: 18,
-                text: 'Aasd asd asdas ',
+                text: '05.04.2025',
                 enableScaling: true,
               ),
+              const SizedBox(height: 10,),
               AnimatedTextWidget(
                 initialSize: 10,
                 finalSize: 18,
-                text: 'Aasd asd asdas ',
+                text: 'Tại tư gia nhà trai',
                 enableScaling: true,
               ),
+              const SizedBox(height: 10,),
               AnimatedTextWidget(
                 initialSize: 10,
                 finalSize: 18,
-                text: 'Aasd asd asdas ',
+                text: '( Tức ngày 08 tháng 03 năm Ất Tỵ )',
                 enableScaling: true,
               ),
-              AnimatedTextWidget(
-                initialSize: 10,
-                finalSize: 18,
-                text: 'Aasd asd asdas ',
-                enableScaling: true,
-              ),
-              ElevatedButton(onPressed: _handleConfirm, child: Text("OK")),
+              const SizedBox(height: 10,),
+              ElevatedButton(onPressed: _handleConfirm, child: Text("Xác nhận tham dự")),
             ],
           ),
         ),
@@ -204,43 +234,66 @@ class InfoState extends State<Info> {
           decoration: BoxDecoration(
             border: Border.all(color: Colors.black),
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(100),
-              bottomLeft: Radius.circular(100),
+              topLeft: Radius.circular(150),
+              bottomLeft: Radius.circular(150),
             ),
           ),
           child: Column(
             children: [
               AnimatedTextWidget(
-                initialSize: 10,
+                initialSize: 30,
                 finalSize: 18,
-                text: 'Aasd asd asdas ',
+                text: 'Tiệc cưới nhà gái',
                 enableScaling: true,
               ),
+              const SizedBox(height: 10,),
+              IntrinsicHeight(
+                child: Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      AnimatedTextWidget(
+                        initialSize: 30,
+                        text: 'Thứ 7',
+                        enableScaling: false,
+                      ),
+                      VerticalDivider(
+                        color: Colors.black,
+                        thickness: 1,
+                        width: 20,
+                      ),
+                      AnimatedTextWidget(
+                          initialSize: 30,
+                          text: '16:30',
+                          enableScaling: false
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10,),
               AnimatedTextWidget(
                 initialSize: 10,
                 finalSize: 18,
-                text: 'Aasd asd asdas ',
+                text: '05.04.2025',
                 enableScaling: true,
               ),
+              const SizedBox(height: 10,),
               AnimatedTextWidget(
                 initialSize: 10,
                 finalSize: 18,
-                text: 'Aasd asd asdas ',
+                text: 'Tại tư gia nhà gái',
                 enableScaling: true,
               ),
+              const SizedBox(height: 10,),
               AnimatedTextWidget(
                 initialSize: 10,
                 finalSize: 18,
-                text: 'Aasd asd asdas ',
+                text: '( Tức ngày 08 tháng 03 năm Ất Tỵ )',
                 enableScaling: true,
               ),
-              AnimatedTextWidget(
-                initialSize: 10,
-                finalSize: 18,
-                text: 'Aasd asd asdas ',
-                enableScaling: true,
-              ),
-              ElevatedButton(onPressed: _handleConfirm, child: Text("OK")),
+              const SizedBox(height: 10,),
+              ElevatedButton(onPressed: _handleConfirm, child: Text("Xác nhận tham dự")),
             ],
           ),
         ),
