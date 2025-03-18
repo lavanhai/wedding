@@ -20,29 +20,39 @@ class InfoState extends State<Info> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        const SizedBox(height: 16,),
         AnimatedTextWidget(
-          initialSize: 10,
-          finalSize: 24,
-          text: 'Aasd asd asdas das das das dasd',
-          enableScaling: true,
+          initialSize: 20,
+          textAlign: TextAlign.center,
+          textStyleDefault: GoogleFonts.dancingScript(textStyle: TextStyle(height: 0.9)),
+          text: 'Hôn nhân là chuyện cả đời\nYêu người vừa ý, cưới người mình thương',
         ),
+        const SizedBox(height: 30,),
         Row(
           children: [
             // Expanded(child:  Image.asset('assets/background.jpg', height: 200),),
-            Expanded(child: Container(color: Colors.blue, height: 300)),
+            Expanded(child: AnimatedImageWidget(imageSource: 'assets/HUY_3410.jpg')),
             Expanded(
               child: Container(
-                color: Colors.amber,
+                color: Colors.white,
                 height: 300,
                 child: Column(
                   children: [
                     const Spacer(),
                     AnimatedTextWidget(
                       initialSize: 20,
-                      text: 'Nhà trai\nÔng: La Văn Hà \nBà: Lê Thị Thành',
+                      text: 'Nhà trai',
                       enableScaling: false,
                       textAlign: TextAlign.center,
-                      textStyleDefault: GoogleFonts.yrsa(),
+                      textStyleDefault: GoogleFonts.sairaStencilOne(),
+                    ),
+                    const SizedBox(height: 8,),
+                    AnimatedTextWidget(
+                      initialSize: 24,
+                      text: 'Ông: La Văn Hà \nBà: Lê Thị Thành',
+                      enableScaling: false,
+                      textAlign: TextAlign.center,
+                      textStyleDefault: GoogleFonts.carattere(),
                     ),
                     const Spacer(),
                     AnimatedTextWidget(
@@ -50,14 +60,15 @@ class InfoState extends State<Info> {
                       text: 'Chú rể',
                       enableScaling: false,
                       textAlign: TextAlign.center,
-                      textStyleDefault: GoogleFonts.yrsa(),
+                      textStyleDefault: GoogleFonts.sairaStencilOne(),
                     ),
+                    const SizedBox(height: 8,),
                     AnimatedTextWidget(
-                      initialSize: 20,
+                      initialSize: 24,
                       text: 'La Hải',
                       enableScaling: false,
                       textAlign: TextAlign.center,
-                      textStyleDefault: GoogleFonts.yrsa(),
+                      textStyleDefault: GoogleFonts.carattere(),
                     ),
                     const Spacer(),
                   ],
@@ -71,54 +82,66 @@ class InfoState extends State<Info> {
             // Expanded(child:  Image.asset('assets/background.jpg', height: 200),),
             Expanded(
               child: Container(
-                color: Colors.amber,
+                color: Colors.white,
                 height: 300,
                 child: Column(
                   children: [
                     const Spacer(),
                     AnimatedTextWidget(
                       initialSize: 20,
-                      text: 'Nhà trai\nÔng: La Văn Hà \nBà: Lê Thị Thành',
+                      text: 'Nhà gái',
                       enableScaling: false,
                       textAlign: TextAlign.center,
-                      textStyleDefault: GoogleFonts.yrsa(),
+                      textStyleDefault: GoogleFonts.sairaStencilOne(),
+                    ),
+                    const SizedBox(height: 8,),
+                    AnimatedTextWidget(
+                      initialSize: 24,
+                      text: 'Ông: Vũ Văn Thịnh \nBà: Nguyễn Thị Mén',
+                      enableScaling: false,
+                      textAlign: TextAlign.center,
+                      textStyleDefault: GoogleFonts.carattere(),
                     ),
                     const Spacer(),
                     AnimatedTextWidget(
                       initialSize: 20,
-                      text: 'Chú rể',
+                      text: 'Cô dâu',
                       enableScaling: false,
                       textAlign: TextAlign.center,
-                      textStyleDefault: GoogleFonts.yrsa(),
+                      textStyleDefault: GoogleFonts.sairaStencilOne(),
                     ),
+                    const SizedBox(height: 8,),
                     AnimatedTextWidget(
-                      initialSize: 20,
-                      text: 'La Hải',
+                      initialSize: 24,
+                      text: 'Vân Vân',
                       enableScaling: false,
                       textAlign: TextAlign.center,
-                      textStyleDefault: GoogleFonts.yrsa(),
+                      textStyleDefault: GoogleFonts.carattere(),
                     ),
                     const Spacer(),
                   ],
                 ),
               ),
             ),
-            Expanded(child: Container(color: Colors.blue, height: 300)),
+            Expanded(child: AnimatedImageWidget(imageSource: 'assets/HUY_4027.jpg')),
           ],
         ),
-        const SizedBox(width: 100, child: Divider()),
+        const SizedBox(height: 30,),
+        const SizedBox(width: 100, child: Divider( thickness: 1,)),
+        const SizedBox(height: 10,),
         AnimatedTextWidget(
           initialSize: 10,
-          finalSize: 24,
+          finalSize: 40,
           text: 'Thư mời',
           enableScaling: true,
         ),
         AnimatedTextWidget(
           initialSize: 10,
           finalSize: 24,
-          text: 'Tham dự lễ cưới của Ad Gad & Ad Ndf',
+          text: 'Tham dự lễ cưới của La Hải & Vân Vân',
           enableScaling: true,
         ),
+        const SizedBox(height: 30,),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -126,7 +149,7 @@ class InfoState extends State<Info> {
             Flexible(
               flex: 3,  // flex=2 giúp ảnh giữa chiếm không gian gấp đôi so với ảnh bên cạnh
               child: AnimatedImageWidget(
-                imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                imageSource: 'assets/HUY_3295.jpg', // Đường dẫn ảnh của bạn
                 moveDirection: MoveDirection.right, // Di chuyển từ phải sang trái
                 duration: const Duration(seconds: 3),
                 enableScaling: false, // Cho phép phóng to hình ảnh
@@ -138,7 +161,7 @@ class InfoState extends State<Info> {
             Flexible(
               flex: 4,  // flex=2 giúp ảnh giữa chiếm không gian gấp đôi so với ảnh bên cạnh
               child: AnimatedImageWidget(
-                imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                imageSource: 'assets/HUY_3446.jpg', // Đường dẫn ảnh của bạn
                 duration: const Duration(seconds: 3),
                 enableScaling: false, // Cho phép phóng to hình ảnh
               ),
@@ -149,7 +172,7 @@ class InfoState extends State<Info> {
             Flexible(
               flex: 3,  // flex=2 giúp ảnh giữa chiếm không gian gấp đôi so với ảnh bên cạnh
               child: AnimatedImageWidget(
-                imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                imageSource: 'assets/HUY_4200.jpg', // Đường dẫn ảnh của bạn
                 moveDirection: MoveDirection.left, // Di chuyển từ phải sang trái
                 duration: const Duration(seconds: 3),
                 enableScaling: false, // Cho phép phóng to hình ảnh
@@ -162,6 +185,7 @@ class InfoState extends State<Info> {
           padding: EdgeInsets.all(16),
           width: double.infinity,
           decoration: BoxDecoration(
+            color: Colors.cyan.shade50,
             border: Border.all(color: Colors.black),
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(150),
@@ -222,8 +246,8 @@ class InfoState extends State<Info> {
                 text: '( Tức ngày 08 tháng 03 năm Ất Tỵ )',
                 enableScaling: true,
               ),
-              const SizedBox(height: 10,),
-              ElevatedButton(onPressed: _handleConfirm, child: Text("Xác nhận tham dự")),
+              // const SizedBox(height: 10,),
+              // ElevatedButton(onPressed: _handleConfirm, child: Text("Xác nhận tham dự")),
             ],
           ),
         ),
@@ -232,6 +256,7 @@ class InfoState extends State<Info> {
           padding: EdgeInsets.all(16),
           width: double.infinity,
           decoration: BoxDecoration(
+            color: Colors.pink.shade100,
             border: Border.all(color: Colors.black),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(150),
@@ -292,8 +317,11 @@ class InfoState extends State<Info> {
                 text: '( Tức ngày 08 tháng 03 năm Ất Tỵ )',
                 enableScaling: true,
               ),
-              const SizedBox(height: 10,),
-              ElevatedButton(onPressed: _handleConfirm, child: Text("Xác nhận tham dự")),
+              // const SizedBox(height: 10,),
+              // ElevatedButton(onPressed: _handleConfirm, child: Text(
+              //   'Xác nhận tham dự',
+              //   style:  GoogleFonts.playfair( textStyle: TextStyle(fontSize: 14)),
+              // ),),
             ],
           ),
         ),

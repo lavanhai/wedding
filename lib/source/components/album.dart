@@ -32,14 +32,14 @@ class AlbumState extends State<Album> {
             Expanded(
               child: Column(children: [
                 AnimatedImageWidget(
-                  imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                  imageSource: 'assets/HUY_3350.jpg', // Đường dẫn ảnh của bạn
                   moveDirection: MoveDirection.right, // Di chuyển từ phải sang trái
                   duration: const Duration(seconds: 2),
                   enableScaling: false, // Cho phép phóng to hình ảnh
                 ),
                 const SizedBox(height: 10),
                 AnimatedImageWidget(
-                  imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                  imageSource: 'assets/HUY_4100.jpg', // Đường dẫn ảnh của bạn
                   moveDirection: MoveDirection.right, // Di chuyển từ phải sang trái
                   duration: const Duration(seconds: 3),
                   enableScaling: false, // Cho phép phóng to hình ảnh
@@ -51,14 +51,14 @@ class AlbumState extends State<Album> {
               margin: EdgeInsets.only(top: 50),
               child: Column(children: [
                 AnimatedImageWidget(
-                  imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                  imageSource: 'assets/HUY_3995.jpg', // Đường dẫn ảnh của bạn
                   moveDirection: MoveDirection.left, // Di chuyển từ phải sang trái
                   duration: const Duration(seconds: 2),
                   enableScaling: false, // Cho phép phóng to hình ảnh
                 ),
                 const SizedBox(height: 10),
                 AnimatedImageWidget(
-                  imageSource: 'assets/background.jpg', // Đường dẫn ảnh của bạn
+                  imageSource: 'assets/HUY_4210.jpg', // Đường dẫn ảnh của bạn
                   moveDirection: MoveDirection.left, // Di chuyển từ phải sang trái
                   duration: const Duration(seconds: 3),
                   enableScaling: false, // Cho phép phóng to hình ảnh

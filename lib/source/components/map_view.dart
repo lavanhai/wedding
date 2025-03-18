@@ -39,7 +39,7 @@ class MapViewState extends State<MapView> {
           children: [
              Text(
               'Địa điểm tổ chức',
-              style:  GoogleFonts.alexBrush( textStyle: TextStyle(fontSize: 24)),
+              style:  GoogleFonts.vollkorn( textStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             ),
             _buildLocationRow(isMale: true, title: "Nhà trai", address: "Bắc Phú - Sóc Sơn - Hà Nội"),
             const SizedBox(height: 16),
@@ -64,21 +64,24 @@ class MapViewState extends State<MapView> {
                   Expanded(
                     child: Text(
                       title,
-                      style:  GoogleFonts.alexBrush( textStyle: TextStyle(fontSize: 30)),
+                      style:  GoogleFonts.protestGuerrilla( textStyle: TextStyle(fontSize: 18)),
                     ),
                   ),
                   SizedBox(
                     height: 30,
                     child: ElevatedButton(
                       onPressed: () => _handleOpenMap(isMale),
-                      child: const Text("Chỉ đường"),
+                      child: Text(
+                        'Chỉ đường',
+                        style:  GoogleFonts.playfair( textStyle: TextStyle(fontSize: 14)),
+                      ),
                     ),
                   ),
                 ],
               ),
               Text(
                 address,
-                style:  GoogleFonts.alexBrush( textStyle: TextStyle(fontSize: 18)),
+                style:  GoogleFonts.markaziText( textStyle: TextStyle(fontSize: 18)),
               )
             ],
           ),

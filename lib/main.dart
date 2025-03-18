@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:wedding/source/components/album.dart';
 import 'package:wedding/source/components/banner.dart';
 import 'package:wedding/source/components/calendar.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text("Animated Text Example")),
+        appBar: AppBar(title:  Text("Thư mời cưới La Hải & Vân Vân",style: GoogleFonts.alexBrush(),)),
         body:  ListView(children: [
           BannerView(),
           Info(),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-enum MoveDirection { left, right, down }
+enum MoveDirection { left, right, down,up }
 
 /// Widget có thể tái sử dụng cho hiệu ứng chữ động
 class AnimatedTextWidget extends StatefulWidget {

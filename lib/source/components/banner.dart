@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wedding/source/widgets/view_animated.dart';
 
 import '../widgets/text_animated.dart';
 
@@ -18,15 +19,14 @@ class BannerViewState extends State<BannerView> {
         DecoratedBox(
           decoration: BoxDecoration(
             image: DecorationImage(
-              opacity: 0.3,
-              scale: 1.3,
+              opacity: 0.1,
               image: AssetImage('assets/background.jpg'),
               fit: BoxFit.cover,
             ),
           ),
           child: Column(
             children: [
-              const SizedBox(height: 50,),
+              const SizedBox(height: 50),
               AnimatedTextWidget(
                 initialSize: 30,
                 finalSize: 80,
@@ -56,73 +56,84 @@ class BannerViewState extends State<BannerView> {
                     ),
                   ),
                   child: Image.asset(
-                    'assets/background.jpg',
+                    'assets/HUY_3410.jpg',
                     width: double.infinity, // Chiều rộng bằng màn hình
                     fit: BoxFit.contain, // Đảm bảo ảnh không bị biến dạng
                   ),
                 ),
               ),
-              IntrinsicHeight(
-                child: Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: [
-                          AnimatedTextWidget(
-                            initialSize: 30,
-                            text: '11:00',
-                            enableScaling: false,
-                            textStyleDefault: GoogleFonts.alata(),
-                          ),
-                          AnimatedTextWidget(
-                            initialSize: 30,
-                            text: 'Chủ nhật',
-                            enableScaling: false,
-                            textStyleDefault: GoogleFonts.alexBrush(),
-                          ),
-                        ],
-                      ),
-                      VerticalDivider(
-                        color: Colors.black,
-                        thickness: 1,
-                        width: 20,
-                      ),
-                      AnimatedTextWidget(
-                        initialSize: 30,
-                        text: '06:04',
-                        enableScaling: false,
-                        textStyleDefault: GoogleFonts.yrsa(),
-                      ),
-                      const SizedBox(width: 10),
-                      Column(
-                        children: [
-                          AnimatedTextWidget(
-                            initialSize: 30,
-                            text: '20',
-                            enableScaling: false,
-                            textStyleDefault: GoogleFonts.tiltPrism(),
-                          ),
-                          AnimatedTextWidget(
-                            initialSize: 30,
-                            text: '25',
-                            enableScaling: false,
-                            textStyleDefault: GoogleFonts.tiltPrism(),
-                          ),
-                        ],
-                      ),
-                    ],
+              AnimatedViewWidget(
+                moveDirection: MoveDirection.down, // Di chuyển từ phải sang trái
+                duration: const Duration(seconds: 2),
+                enableScaling: false,
+                child: IntrinsicHeight(
+                  child: Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            AnimatedTextWidget(
+                              initialSize: 30,
+                              text: '11:00',
+                              enableScaling: false,
+                              textStyleDefault: GoogleFonts.alata(),
+                            ),
+                            AnimatedTextWidget(
+                              initialSize: 30,
+                              text: 'Chủ nhật',
+                              enableScaling: false,
+                              textStyleDefault: GoogleFonts.alexBrush(),
+                            ),
+                          ],
+                        ),
+                        VerticalDivider(
+                          color: Colors.black,
+                          thickness: 1,
+                          width: 20,
+                        ),
+                        AnimatedTextWidget(
+                          initialSize: 30,
+                          text: '06:04',
+                          enableScaling: false,
+                          textStyleDefault: GoogleFonts.yrsa(),
+                        ),
+                        const SizedBox(width: 10),
+                        Column(
+                          children: [
+                            AnimatedTextWidget(
+                              initialSize: 30,
+                              text: '20',
+                              enableScaling: false,
+                              textStyleDefault: GoogleFonts.tiltPrism(),
+                            ),
+                            AnimatedTextWidget(
+                              initialSize: 30,
+                              text: '25',
+                              enableScaling: false,
+                              textStyleDefault: GoogleFonts.tiltPrism(),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
-              AnimatedTextWidget(
-                initialSize: 16,
-                text: '( Ngày mùng 9 tháng 3 năm Ất Tỵ )',
+              const SizedBox(height: 10),
+              AnimatedViewWidget(
+                moveDirection: MoveDirection.up, // Di chuyển từ phải sang trái
+                duration: const Duration(seconds: 2),
                 enableScaling: false,
-                textStyleDefault: GoogleFonts.playfair(),
-                textAlign: TextAlign.center,
+                child: AnimatedTextWidget(
+                  initialSize: 16,
+                  text: '( Ngày mùng 9 tháng 3 năm Ất Tỵ )',
+                  enableScaling: false,
+                  textStyleDefault: GoogleFonts.playfair(),
+                  textAlign: TextAlign.center,
+                ),
               ),
+              const SizedBox(height: 80),
             ],
           ),
         ),

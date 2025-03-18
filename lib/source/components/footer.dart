@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/text_animated.dart';
 
@@ -22,9 +23,9 @@ class FooterState extends State<Footer> {
       child: DecoratedBox(
         decoration: BoxDecoration(
           image: DecorationImage(
-            opacity: 0.3,
-            image: AssetImage('assets/background.jpg'),
-            fit: BoxFit.fill,
+            opacity: 0.1,
+            image: AssetImage('assets/vecteezy_heart.png'),
+            // fit: BoxFit.fitHeight,
           ),
         ),
         child: Padding(
@@ -33,12 +34,17 @@ class FooterState extends State<Footer> {
             children: [
               Spacer(),
               AnimatedTextWidget(
+                initialSize: 40,
                 text: 'Hân hạnh được đón tiếp',
                 enableScaling: false,
+                textStyleDefault: GoogleFonts.meaCulpa(),
               ),
               ElevatedButton(
                 onPressed: _handleOpenQR,
-                child: Text('Mừng cưới'),
+                child: Text(
+                  'Xác nhận tham dự',
+                  style:  GoogleFonts.playfair( textStyle: TextStyle(fontSize: 14)),
+                ),
               ),
               Spacer(),
             ],

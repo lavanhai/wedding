@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class Calendar extends StatefulWidget {
@@ -24,24 +25,32 @@ class CalendarState extends State<Calendar> {
                   children: [
                     Text(
                       '3',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
+                      style: GoogleFonts.yesevaOne(
+                        textStyle: TextStyle(
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     const SizedBox(width: 10),
                     Text(
                       'April',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
+                      style: GoogleFonts.yesevaOne(
+                        textStyle: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
                 ),
                 Text(
                   '2025',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  style: GoogleFonts.alfaSlabOne(
+                    textStyle: TextStyle(
+                      fontSize: 20
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -95,7 +104,12 @@ class CalendarView extends StatelessWidget {
                   .map(
                     (day) => Text(
                       day,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
+                      style: GoogleFonts.yesevaOne(
+                        textStyle: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   )
                   .toList(),
